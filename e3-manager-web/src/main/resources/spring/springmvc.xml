@@ -62,7 +62,5 @@
     <dubbo:reference interface="com.liger.service.ItemCatService" id="itemCatService" />
     <dubbo:reference interface="com.liger.content.service.ContentService" id="contentService" />
     <dubbo:reference interface="com.liger.content.service.ContentCategoryService" id="contentCategoryService" />
-    <dubbo:reference interface="com.liger.search.service.SearchService" id="searchService" />
-    <dubbo:reference interface="com.liger.search.service.SearchItemService" id="searchItemService" />
 
 </beans>

@@ -1,6 +1,5 @@
 package com.liger.controller;
 
-import com.liger.common.utils.FastDFSClient;
 import com.liger.common.utils.JsonUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
@@ -33,15 +32,15 @@ public class PictureController {
             String filename = uploadFile.getOriginalFilename();
             String extName = filename.substring(filename.lastIndexOf(".") + 1);
             //2、创建一个FastDFS的客户端
-            FastDFSClient dfsClient = new FastDFSClient("classpath:conf/client.conf");
+//            FastDFSClient dfsClient = new FastDFSClient("classpath:conf/client.conf");
             //3、执行上传处理
-            String path = dfsClient.uploadFile(filename.getBytes(), extName);
+//            String path = dfsClient.uploadFile(filename.getBytes(), extName);
             //4、拼接返回的url和ip地址，拼装成完整的url
-            String url = IMAGE_SERVER_URL + path;
+//            String url = IMAGE_SERVER_URL + path;
             //5、返回map
             HashMap result = new HashMap<>();
             result.put("error", 0);
-            result.put("url", url);
+//            result.put("url", url);
             return JsonUtils.objectToJson(result);
         }catch (Exception e){
             e.printStackTrace();

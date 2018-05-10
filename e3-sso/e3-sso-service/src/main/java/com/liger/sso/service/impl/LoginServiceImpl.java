@@ -1,15 +1,14 @@
 package com.liger.sso.service.impl;
 
-import com.liger.common.jedis.JedisClient;
 import com.liger.common.utils.E3Result;
 import com.liger.common.utils.JsonUtils;
 import com.liger.mapper.TbUserMapper;
 import com.liger.model.User;
+import com.liger.sso.global.Global;
 import com.liger.sso.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import org.springframework.util.Assert;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.DigestUtils;
 import tk.mybatis.mapper.entity.Example;
@@ -27,8 +26,8 @@ import java.util.UUID;
 public class LoginServiceImpl implements LoginService {
     @Autowired
     private TbUserMapper userMapper;
-    @Autowired
-    private JedisClient jedisClient;
+//    @Autowired
+//    private JedisClient jedisClient;
     @Value("${SESSION_EXPIRE}")
     private Integer SESSION_EXPIRE;
 
@@ -51,8 +50,9 @@ public class LoginServiceImpl implements LoginService {
         //生成token并且存储在redis
         String token = UUID.randomUUID().toString();
         user.setPassword(null);
-        jedisClient.set("SESSION:"+token, JsonUtils.objectToJson(user));
-        jedisClient.expire("SESSION:"+token,SESSION_EXPIRE);
+        Global.tokenMap.put("SESSION:"+token,JsonUtils.objectToJson(user));
+//        jedisClient.set("SESSION:"+token, JsonUtils.objectToJson(user));
+//        jedisClient.expire("SESSION:"+token,SESSION_EXPIRE);
 
         return E3Result.ok(token);
     }
