@@ -12,12 +12,11 @@ import com.liger.model.ItemDesc;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.jms.core.JmsTemplate;
-import org.springframework.jms.core.MessageCreator;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 import tk.mybatis.mapper.entity.Example;
 
-import javax.jms.*;
+import javax.jms.Destination;
 import java.util.Date;
 import java.util.List;
 
@@ -94,13 +93,13 @@ public class ItemServiceImpl implements ItemService {
         //发送商品添加消息
         //search-service的ItemAddMessageListener监听器监听 添加solr索引
         //item-web的HtmlGenListener监听器监听 生成freemarker静态页面
-        jmsTemplate.send(topicDestination, new MessageCreator() {
+        /*jmsTemplate.send(topicDestination, new MessageCreator() {
             @Override
             public Message createMessage(Session session) throws JMSException {
                 TextMessage textMessage = session.createTextMessage(itemId + "");
                 return textMessage;
             }
-        });
+        });*/
         // 7、E3Result.ok()
         return E3Result.ok();
     }

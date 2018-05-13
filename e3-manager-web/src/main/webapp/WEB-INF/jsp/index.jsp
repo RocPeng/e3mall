@@ -31,7 +31,6 @@
          		<ul>
 	         		<li data-options="attributes:{'url':'item-add'}">新增商品</li>
 	         		<li data-options="attributes:{'url':'item-list'}">查询商品</li>
-	         		<li data-options="attributes:{'url':'item-param-list'}">规格参数</li>
 	         	</ul>
          	</li>
          	<li>
@@ -39,12 +38,6 @@
          		<ul>
 	         		<li data-options="attributes:{'url':'content-category'}">内容分类管理</li>
 	         		<li data-options="attributes:{'url':'content'}">内容管理</li>
-	         	</ul>
-         	</li>
-         	<li>
-         		<span>索引库管理</span>
-         		<ul>
-	         		<li data-options="attributes:{'url':'index-item'}">solr索引库维护</li>
 	         	</ul>
          	</li>
          </ul>
