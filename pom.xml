@@ -12,7 +12,6 @@
         <module>e3-manager</module>
         <module>e3-manager-web</module>
         <module>e3-content</module>
-        <module>e3-item-web</module>
         <module>e3-portal-web</module>
         <module>e3-sso</module>
         <module>e3-sso-web</module>
