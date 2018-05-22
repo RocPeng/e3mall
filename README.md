@@ -89,3 +89,10 @@ Simple注册中心
 
 只支持JAVA语言  
 
+### 论文推荐:  
+http://xueshu.baidu.com/s?wd=paperuri%3A%28eb0855e4aaa9d2bee9ef14baca3f0e46%29&filter=sc_long_sign&sc_ks_para=q%3D%E5%9F%BA%E4%BA%8ESOA%E6%9E%B6%E6%9E%84%E7%9A%84%E7%BD%91%E4%B8%8A%E5%95%86%E5%9F%8E%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0&sc_us=18426617378235330724&tn=SE_baiduxueshu_c1gjeupa&ie=utf-8  
+http://xueshu.baidu.com/s?wd=paperuri%3A%28a6da4bc9dd9bd432d89a57c41c2debba%29&filter=sc_long_sign&tn=SE_xueshusource_2kduw22v&sc_vurl=http%3A%2F%2Fkns.cnki.net%2FKCMS%2Fdetail%2Fdetail.aspx%3Ffilename%3Drjdk201605006%26dbname%3DCJFD%26dbcode%3DCJFQ&ie=utf-8&sc_us=12210887665149124919  
+http://xueshu.baidu.com/s?wd=paperuri%3A%28f9dd280cfabd799cbe8a8ac536a57ad3%29&filter=sc_long_sign&tn=SE_xueshusource_2kduw22v&sc_vurl=http%3A%2F%2Fwww.cqvip.com%2FQK%2F97354X%2F201701%2F671133103.html&ie=utf-8&sc_us=9329097767697314323  
+### 技术博客推荐:   
+https://blog.csdn.net/xxssyyyyssxx/article/details/72834243  
+所有的博客:https://so.csdn.net/so/search/s.do?p=2&q=%E5%95%86%E5%9F%8E&t=blog&domain=&o=&s=&u=xxssyyyyssxx&l=&f=&rbg=0  
