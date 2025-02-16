@@ -1,0 +1,58 @@
+#!/bin/sh
+
+RED=`tput setaf 1`
+GREEN=`tput setaf 2`
+RESET=`tput sgr0`
+
+# 定义分支命名规则
+FEATURE_BUGFIX_PATTERN="^(feature|bugfix)[0-9]+.*$"
+TEST_RELEASE_PATTERN="^(test|release)[0-9]{8}.*$"
+
+# 读取推送的所有引用更新
+while read oldrev newrev refname; do
+    # 只检查分支的创建（新分支）
+    if [ "$oldrev" = "0000000000000000000000000000000000000000" ]; then
+        # 提取分支名称
+        branch=${refname#refs/heads/}
+        
+        # 获取分支前缀
+        prefix=$(echo "$branch" | grep -oE "^(feature|bugfix|test|release)")
+        
+        # 检查分支名称是否符合规范
+        case "$prefix" in
+            "feature"|"bugfix")
+                if ! echo "$branch" | grep -qE "$FEATURE_BUGFIX_PATTERN"; then
+                    echo "${RED}分支命名不规范！${RESET}"
+                    echo "${GREEN}feature 或 bugfix 分支必须包含JIRA号：${RESET}"
+                    echo "${GREEN}feature[JIRA号] - 用于新功能开发${RESET}"
+                    echo "${GREEN}bugfix[JIRA号]  - 用于修复问题${RESET}"
+                    echo "${GREEN}例如：feature102-user-login${RESET}"
+                    echo "${GREEN}     bugfix1234-login-error${RESET}"
+                    exit 1
+                fi
+                ;;
+            "test"|"release")
+                if ! echo "$branch" | grep -qE "$TEST_RELEASE_PATTERN"; then
+                    echo "${RED}分支命名不规范！${RESET}"
+                    echo "${GREEN}test 或 release 分支必须包含8位日期：${RESET}"
+                    echo "${GREEN}test[YYYYMMDD]    - 用于测试环境的分支发布${RESET}"
+                    echo "${GREEN}release[YYYYMMDD] - 用于版本发布前的准备${RESET}"
+                    echo "${GREEN}例如：test20250122${RESET}"
+                    echo "${GREEN}     release20250122${RESET}"
+                    exit 1
+                fi
+                ;;
+            *)
+                echo "${RED}分支命名不规范！${RESET}"
+                echo "${GREEN}分支名必须以以下前缀之一开头：${RESET}"
+                echo "${GREEN}feature[JIRA号] - 用于新功能开发${RESET}"
+                echo "${GREEN}bugfix[JIRA号]  - 用于修复问题${RESET}"
+                echo "${GREEN}test[YYYYMMDD]    - 用于测试环境的分支发布${RESET}"
+                echo "${GREEN}release[YYYYMMDD] - 用于版本发布前的准备${RESET}"
+                exit 1
+                ;;
+        esac
+    fi
+done
+
+exit 0 

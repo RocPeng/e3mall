@@ -5,7 +5,7 @@ GREEN=`tput setaf 2`
 RESET=`tput sgr0`
 
 # 定义允许的提交类型
-COMMIT_TYPES="^(feat|bugfix|test|docs|style|refactor|chore):"
+COMMIT_TYPES="^(feat|bugfix|test|docs|style|refactor|chore)"
 
 if ! grep -qE "$COMMIT_TYPES" $1; then
     echo "${RED}提交信息格式错误！${RESET}"
