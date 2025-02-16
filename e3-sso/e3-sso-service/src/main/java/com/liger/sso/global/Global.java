@@ -14,6 +14,7 @@ public class Global {
     public static final int USERNAMETYPE = 1;
     public static final int PHONETYPE = 2;
     public static final int EMAILTYPE = 3;
+    public static final int EMAILTYPE2 = 4;
 
     public static Map<String,String> tokenMap = new HashMap<>();
 }
