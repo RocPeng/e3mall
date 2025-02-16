@@ -1,0 +1,22 @@
+#!/bin/sh
+
+RED=`tput setaf 1`
+GREEN=`tput setaf 2`
+RESET=`tput sgr0`
+
+# 定义允许的提交类型
+COMMIT_TYPES="^(feat|bugfix|test|docs|style|refactor|chore):"
+
+if ! grep -qE "$COMMIT_TYPES" $1; then
+    echo "${RED}提交信息格式错误！${RESET}"
+    echo "${GREEN}提交信息必须以以下类型开头：${RESET}"
+    echo "${GREEN}feat：新功能（feature）${RESET}"
+    echo "${GREEN}bugfix：修补bug${RESET}"
+    echo "${GREEN}test：增加测试${RESET}"
+    echo "${GREEN}docs：文档（documentation）${RESET}"
+    echo "${GREEN}style：格式（不影响代码运行的变动）${RESET}"
+    echo "${GREEN}refactor：重构（即不是新增功能，也不是修改bug的代码变动）${RESET}"
+    echo "${GREEN}chore：构建过程或辅助工具的变动${RESET}"
+    echo "${GREEN}例如：feat: 添加用户登录功能${RESET}"
+    exit 1
+fi
